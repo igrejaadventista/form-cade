@@ -120,60 +120,9 @@ export default function Home() {
       fontFamily: 'Arial, sans-serif'
     }}>
       <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
         marginBottom: 20 
       }}>
-        <h1 style={{ color: '#333', margin: 0 }}>{t.title}</h1>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <button
-            onClick={() => {
-              setLanguage('pt');
-              router.push({ pathname: router.pathname, query: { ...router.query, lang: 'pt' } });
-            }}
-            style={{
-              padding: '6px 8px',
-              backgroundColor: language === 'pt' ? '#007bff' : '#f8f9fa',
-              color: language === 'pt' ? 'white' : '#333',
-              border: '1px solid #dee2e6',
-              borderRadius: 4,
-              cursor: 'pointer',
-              fontSize: '16px',
-              lineHeight: 1,
-              minWidth: '32px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            title="Português"
-          >
-            🇧🇷
-          </button>
-          <button
-            onClick={() => {
-              setLanguage('es');
-              router.push({ pathname: router.pathname, query: { ...router.query, lang: 'es' } });
-            }}
-            style={{
-              padding: '6px 8px',
-              backgroundColor: language === 'es' ? '#007bff' : '#f8f9fa',
-              color: language === 'es' ? 'white' : '#333',
-              border: '1px solid #dee2e6',
-              borderRadius: 4,
-              cursor: 'pointer',
-              fontSize: '16px',
-              lineHeight: 1,
-              minWidth: '32px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            title="Español"
-          >
-            🇪🇸
-          </button>
-        </div>
+        <h1 style={{ color: '#333', margin: 0, textAlign: 'center' }}>{t.title}</h1>
       </div>
 
 

@@ -116,66 +116,16 @@ export default function IframeGuestSearch() {
       maxWidth: '100%'
     }}>
       <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
         marginBottom: 15 
       }}>
         <h3 style={{ 
           margin: 0, 
           color: '#333',
-          fontSize: '16px'
+          fontSize: '16px',
+          textAlign: 'center'
         }}>
           {t.title}
         </h3>
-        <div style={{ display: 'flex', gap: 4 }}>
-          <button
-            onClick={() => {
-              setLanguage('pt');
-              router.push({ pathname: router.pathname, query: { ...router.query, lang: 'pt' } });
-            }}
-            style={{
-              padding: '3px 6px',
-              backgroundColor: language === 'pt' ? '#007bff' : '#f8f9fa',
-              color: language === 'pt' ? 'white' : '#333',
-              border: '1px solid #dee2e6',
-              borderRadius: 3,
-              cursor: 'pointer',
-              fontSize: '12px',
-              lineHeight: 1,
-              minWidth: '24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            title="Português"
-          >
-            🇧🇷
-          </button>
-          <button
-            onClick={() => {
-              setLanguage('es');
-              router.push({ pathname: router.pathname, query: { ...router.query, lang: 'es' } });
-            }}
-            style={{
-              padding: '3px 6px',
-              backgroundColor: language === 'es' ? '#007bff' : '#f8f9fa',
-              color: language === 'es' ? 'white' : '#333',
-              border: '1px solid #dee2e6',
-              borderRadius: 3,
-              cursor: 'pointer',
-              fontSize: '12px',
-              lineHeight: 1,
-              minWidth: '24px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            title="Español"
-          >
-            🇪🇸
-          </button>
-        </div>
       </div>
 
 
