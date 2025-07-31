@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Embed - Sistema Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .iframe-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .iframe-example {
+            flex: 1;
+            min-width: 300px;
+        }
+        .iframe-example h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        iframe {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema de Consulta de Hóspedes</h1>
+            <p>Exemplo de como embedar o sistema em outros websites</p>
+        </div>
+        
+        <div class="content">
+            <h2>Como usar o iframe</h2>
+            <p>Você pode embedar o sistema de consulta de hóspedes em qualquer website usando um iframe. Aqui estão alguns exemplos:</p>
+            
+            <div class="code-example">
+&lt;!-- Versão completa --&gt;
+&lt;iframe src="<span id="baseUrl">YOUR_APP_URL</span>" width="100%" height="600"&gt;&lt;/iframe&gt;
+
+&lt;!-- Versão compacta para iframe --&gt;
+&lt;iframe src="<span id="baseUrl">YOUR_APP_URL</span>/iframe" width="400" height="300"&gt;&lt;/iframe&gt;
+
+&lt;!-- Com parâmetro de idioma --&gt;
+&lt;iframe src="<span id="baseUrl">YOUR_APP_URL</span>?lang=es" width="100%" height="600"&gt;&lt;/iframe&gt;
+&lt;iframe src="<span id="baseUrl">YOUR_APP_URL</span>/iframe?lang=pt" width="400" height="300"&gt;&lt;/iframe&gt;
+            </div>
+            
+            <h3>Exemplos em funcionamento:</h3>
+            
+            <div class="iframe-container">
+                <div class="iframe-example">
+                    <h3>Versão Completa</h3>
+                    <iframe id="fullIframe" src="YOUR_APP_URL" width="100%" height="600"></iframe>
+                </div>
+                
+                <div class="iframe-example">
+                    <h3>Versão Compacta (Iframe)</h3>
+                    <iframe id="compactIframe" src="YOUR_APP_URL/iframe" width="400" height="300"></iframe>
+                </div>
+            </div>
+            
+            <h3>Configurações recomendadas:</h3>
+            <ul>
+                <li><strong>Largura:</strong> Mínimo 300px para a versão compacta</li>
+                <li><strong>Altura:</strong> 300px para a versão compacta, 600px para a versão completa</li>
+                <li><strong>Responsivo:</strong> Use width="100%" para layouts responsivos</li>
+            </ul>
+            
+            <h3>URLs disponíveis:</h3>
+            <ul>
+                <li><code>YOUR_APP_URL</code> - Versão completa (Português)</li>
+                <li><code>YOUR_APP_URL?lang=es</code> - Versão completa (Espanhol)</li>
+                <li><code>YOUR_APP_URL/iframe</code> - Versão compacta (Português)</li>
+                <li><code>YOUR_APP_URL/iframe?lang=es</code> - Versão compacta (Espanhol)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-detect and update URLs
+        function updateUrls() {
+            const baseUrl = window.location.origin;
+            
+            // Update all span elements with baseUrl
+            const baseUrlSpans = document.querySelectorAll('#baseUrl');
+            baseUrlSpans.forEach(span => {
+                span.textContent = baseUrl;
+            });
+            
+            // Update iframe sources
+            const fullIframe = document.getElementById('fullIframe');
+            const compactIframe = document.getElementById('compactIframe');
+            
+            if (fullIframe) {
+                fullIframe.src = baseUrl;
+            }
+            
+            if (compactIframe) {
+                compactIframe.src = baseUrl + '/iframe';
+            }
+            
+            // Update URL list
+            const urlList = document.querySelector('.content ul');
+            if (urlList) {
+                urlList.innerHTML = `
+                    <li><code>${baseUrl}</code> - Versão completa (Português)</li>
+                    <li><code>${baseUrl}?lang=es</code> - Versão completa (Espanhol)</li>
+                    <li><code>${baseUrl}/iframe</code> - Versão compacta (Português)</li>
+                    <li><code>${baseUrl}/iframe?lang=es</code> - Versão compacta (Espanhol)</li>
+                `;
+            }
+        }
+        
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', updateUrls);
+    </script>
+</body>
+</html> 
